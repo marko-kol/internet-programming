@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 4</title>
+
+    <script>
+        function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+        }
+        function guess()
+        {
+            a=document.frm.guess_field.value;
+            a = (parseInt)(a);
+           try{
+               if (Number.isInteger(a) == false || a<1 || a>10)
+                        alert("Please enter a number between 1 and 10 :)");
+           
+           else{
+            
+            
+           
+            rand = getRandomInt(1,11);
+            if (a == rand){
+                document.write("COngratuilations you guessed the number! ");
+            }
+            else{
+                document.write("Wrong number, try again. The correct number was: " + rand);
+            }
+        }
+        }catch(err){
+			alert("Write digits " + err.Description);
+		}
+
+
+        }
+
+        function again(){
+            
+        }
+    </script>
+</head>
+<body>
+   
+	
+
+    <form name="frm" action="">
+        Guess the nubmber between 1 and 10
+        <input type="text" id="guess_field"  />
+
+        <input type="button" value="Guess"  onclick="guess()"/>
+    </form>
+
+
+</body>
+</html>
