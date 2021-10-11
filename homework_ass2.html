@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Assignment 3</title>
+<script>
+	function calculate(){
+		a=document.frm.side1.value;
+		b=document.frm.side2.value;
+		c=document.frm.side3.value;
+		try{
+		if (a.length == 0 || b.length == 0 || c.length == 0 ){
+			alert("Write all three sides");
+			
+		}
+		else{
+			a= (parseInt)(a);
+			b = (parseInt)(b);
+			c = (parseInt)(c);
+			p=parseFloat((a+b+c)/2);
+			area=Math.sqrt(p*(p-a)*(p-b)*(p-c));
+			
+		document.getElementById("res").style.display="block";
+		document.getElementById("formc").style.display="none";
+
+document.getElementById("values").innerHTML="Side a: "+ a + "<br> Side b: " + b + "<br> Side c: " + c +'<br> Area: ' + area;
+		}
+		}catch(err){
+			alert("Write digits " + err.Description);
+		}
+	}
+	
+	
+	function again(){
+		document.getElementById("res").style.display="none";
+		document.getElementById("formc").style.display="block";
+		document.frm.side1.value="";
+		document.frm.side2.value="";
+		document.frm.side3.value="";
+		document.frm.side1.focus();
+	}
+</script>
+</head>
+
+<span id="formc" style="display:block">
+<form name="frm" action="" method="post">
+	Enter three sides of a triangle
+	<input type="text" id="side1"  />
+	<input type="text" id="side2"  />
+	<input type="text" id="side3"  />
+	
+	<input type="button" value="calculate"  onclick="calculate()"/>
+
+</form>
+</span>
+
+<span id="res" style="display:none">
+	<p id="values"> </p>
+	
+	<input type="button" id="again" value="Calculate again" onclick="again()">
+</span>
+<body>
+</body>
+</html>
