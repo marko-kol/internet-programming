@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 4</title>
+
+    <script>
+         function Move() {
+             input = document.my_form.input.value;
+             newstr = input.charAt(input.length - 1) + input.substring(0, input.length - 1);
+             document.getElementById("input").value = newstr;
+         }
+    </script>
+</head>
+<body>
+        
+    <form id="my_form" name="my_form">
+	Enter a string and click the button to make it move
+        <input id="input" name="input" class="inp_text" type="text" size="20">
+        <input type="button" class="button" value="MOVE" onClick=Move()>
+    </form>
+
+
+</body>
+</html>
